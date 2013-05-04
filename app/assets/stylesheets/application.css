@@ -17,6 +17,7 @@
     float: left;
     padding: 10px;
 }
+
 body { padding-top: 100px; }
 footer { margin-top: 100px; }
 table, td, th { vertical-align: middle !important; border: none !important; }
@@ -25,3 +26,11 @@ td.picture { width: 140px; }
 td.picture img { width: 140px; }
 .option {text-align: center; font-size: 28px; font-family: Helvetica; padding-left; border-radius:10  
 	;   }
+
+	ul.error_messages {
+		list-style: none;
+		margin: 0px;
+		background: red;
+		padding: 10px;
+		margin-bottom: 20px;
+	}
