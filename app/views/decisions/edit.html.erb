@@ -1,0 +1,27 @@
+<%= form_for(@decision) do |f| %>
+	
+	<h2>fill it up:</h2>
+	<ul class="error_messages">
+	<% @decision.errors.each do |field, error| %>
+		<li><%= field %> <%= error %></li>
+	<% end %>
+	</ul>
+
+<div class = field> 
+	<%= f.label :question %>
+	<%= f.text_field :question %>
+</div> 
+<div class = field> 
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+</div> 
+<div class = field> 
+	<%= f.label :option1_name, "Option One" %>
+	<%= f.text_field :option1_name %>
+</div> 
+<div class = field> 
+	<%= f.label :option2_name, "Option Two" %>
+	<%= f.text_field :option2_name %>
+</div> 
+<%= f.submit :Save %>
+<% end %>
