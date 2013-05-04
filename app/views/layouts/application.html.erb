@@ -17,7 +17,22 @@
     </div>
 </div>
 
-<div class="container"><%= yield %></div>
+
+
+<div class="container">
+  <div class="user_box">
+
+      <% if current_user %>
+          You are logged in as <%= current_user.username %>
+          <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+          Who are you?
+          <%= link_to "Log in", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %>
+      <% end %>
+
+  </div>
+  <%= yield %>
+</div>
 
 <footer>
     <div class="container">Rails Girls 2013</div>

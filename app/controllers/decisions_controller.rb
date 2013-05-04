@@ -1,4 +1,5 @@
 class DecisionsController < ApplicationController
+	before_filter :authenticate_user!
 
 	def index
 		@decisions = Decision.all
@@ -17,8 +18,10 @@ class DecisionsController < ApplicationController
 
 	def create
 		@decision = Decision.new params[:decision]
+		@decision.user = current_user
 		@decision.save
 		redirect_to :decisions
+
 	end
 
 

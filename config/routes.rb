@@ -1,5 +1,9 @@
 Pythia::Application.routes.draw do
+  devise_for :users
+
   resources :decisions
+  resources :profiles, :only => :show
+  
   root :to => "decisions#index"
 
   # The priority is based upon order of creation:
