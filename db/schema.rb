@@ -11,17 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504112309) do
+ActiveRecord::Schema.define(:version => 20130708173958) do
 
   create_table "decisions", :force => true do |t|
     t.string   "question"
     t.text     "description"
-    t.string   "option1_name"
-    t.string   "option1_picture"
-    t.string   "option2_name"
-    t.string   "option2_picture"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.integer  "decision_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -37,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130504112309) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "user_id"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
   end

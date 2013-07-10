@@ -1,7 +1,9 @@
 Pythia::Application.routes.draw do
   devise_for :users
 
-  resources :decisions
+  resources :decisions do 
+    resources :options
+  end 
   resources :profiles, :only => :show
   
   root :to => "decisions#index"

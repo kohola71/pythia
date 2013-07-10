@@ -1,8 +1,13 @@
 <h1><%= @decision.question %></h1>
 <p><%= @decision.description %></p>
 <div class = "row">
-<div class = "span5 well option"><%= @decision.option1_name %></div>
-<div class = "span5 well option"><%= @decision.option2_name %></div>
+
+<% @decision.options.each do |option| %>
+
+<div class = "span5 well option"><%= option.name %></div>
+
+<% end %>
+
 </div>
 
 <%= link_to "Edit", [:edit, @decision] %> 
