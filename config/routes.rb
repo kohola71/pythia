@@ -1,7 +1,12 @@
 PythiaApp::Application.routes.draw do
+  resources :users
+
   # get "welcome/index"
 
-  resources :questions
+  resources :questions, :answers do 
+    resources :answers 
+  end 
+
   root to: "welcome#index"
 
 
