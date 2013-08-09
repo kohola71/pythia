@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
 
 	def create 
 		@question = Question.find(params[:question_id])
-		@answer = Answer.create(params[:answer].permit(:user, :body))
+		
 		redirect_to question_path(@question)
 	end 
 

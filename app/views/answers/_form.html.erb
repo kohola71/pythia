@@ -1,12 +1,13 @@
 <%= form_for([@question, @question.answers.build]) do |f| %>
-  <p>
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
+<p>
+  <%= f.radio_button(:body, "YES") %>
+  <%= f.label "YES" %>
+  <%= f.radio_button(:body, "NO") %>
+  <%= f.label "NO" %>
   </p>
-  <p>
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
+
+
+ 
   <p>
     <%= f.submit %>
   </p>
