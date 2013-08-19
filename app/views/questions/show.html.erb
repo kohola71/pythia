@@ -4,11 +4,25 @@
 </p>
 
 
-<h2>Answers</h2>
-<%= render @question.answers %>
- 
+
 <h2>Add an answer:</h2>
-<%= render "answers/form" %>
+
+<%= form_for(@answer) do |f| %>
+<p>
+  <%= f.radio_button(:body, "YES") %>
+  <%= f.label "YES" %>
+  <%= f.radio_button(:body, "NO") %>
+  <%= f.label "NO" %>
+  <%= f.hidden_field :question_id, :value => @question.id %>
+  </p>
+
+
+  <p>
+
+    <%= f.submit %>
+  </p>
+<% end %>
+
  
 <%= link_to 'Edit Question', edit_question_path(@question) %> |
 <%= link_to 'Back to Questions', questions_path %>
