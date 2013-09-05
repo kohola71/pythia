@@ -24,6 +24,8 @@ class QuestionsController < ApplicationController
 
 	def show 
 		@question = Question.find(params[:id])
+		@insight = Insight.new
+		@insights = @question.insights
 		@answer = Answer.new
 	end 
 
@@ -31,6 +33,24 @@ class QuestionsController < ApplicationController
 	def edit
 		@question = Question.find params[:id]
 	end
+
+
+ def update
+    @question = Question.find(params[:id])
+
+    respond_to do |format|
+      if @question.update_attributes(params[:answer])
+        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+
 
 	def destroy 
 		@question = Question.find(params[:id])

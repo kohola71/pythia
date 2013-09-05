@@ -1,5 +1,6 @@
 
-
+<div class="row">
+<div class="col-md-6 col-md-offset-3 text-center">
 <%= form_for :question, url: questions_path do |f| %>
   <% if @question.errors.any? %>
   <div id="errorExplanation">
@@ -12,6 +13,7 @@
     </ul>
   </div>
   <% end %>
+
   
   <p>
     <%= f.label "Enter new question" %><br>
@@ -22,4 +24,6 @@
     <%= f.submit :Save %>
   </p>
 <% end %>
+
+</div> 
  
