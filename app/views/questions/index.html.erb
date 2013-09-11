@@ -1,32 +1,40 @@
+<head> 
+</head> 
+
+<body>
+
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center"><h1> My Questions </h1> </div> 
+  <div class="col-md-6 col-md-offset-3 text-center"><h1 id="questions_title"><strong> My Questions </strong></h1> </div> 
 
 <br> 
 <br> 
-<br>
-<br> 
 
 <div class="row">
-  <div class="col-md-4 col-md-offset-4 text-center">
+  <div class="col-md-5 col-md-offset-4 text-center">
+
+
+
 <table>
   <tr>
     <th></th>
-    <th>
+    <th></th> 
   </tr>
 </div>
  
 
-
   <% @questions.each do |question| %>
     
-    <tr>
-    <td><%= question.text %></td>
-<button type="button" class="btn btn-default btn-lg btn-block"><td><%= link_to 'Vote', question_path(question) %></td></button>
-<td><%= link_to 'Edit', edit_question_path(question) %></td>
-<td><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<tr>
+<td><%= question.text %></td> 
+<td> <div class= "btn-group">
+
+<button class= "btn"><%= link_to 'Vote', question_path(question) %></button>
+<button class= "btn"><%= link_to 'Edit', edit_question_path(question) %></button>
+<button class= "btn"><%= link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?' } %></button>
  	
-  </tr>
-  <% end %>
+</div> </td>
+</tr>
+<% end %>
 
 </table>
 
@@ -42,3 +50,5 @@
 <br> 
 <br> 
 <br> 
+
+</body> 

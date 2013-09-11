@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     respond_to do |format|
-      if @question.update_attributes(params[:answer])
+      if @question.update_attributes(question_params)
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
       else
@@ -58,6 +58,15 @@ class QuestionsController < ApplicationController
 
 		redirect_to questions_path
 	end 
+
+
+
+
+private 
+
+def question_params
+      params.require(:question).permit(:body, :question)
+    end
 
 
 end 
