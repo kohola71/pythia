@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130825135548) do
+ActiveRecord::Schema.define(version: 20130924123142) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 20130825135548) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
     t.string   "name"
-    t.string   "slug"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end

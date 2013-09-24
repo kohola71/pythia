@@ -1,22 +1,47 @@
-<head>
+<head> 
 </head> 
-
 
 <body> 
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center"><h1 id="answer_title"> Pros & Cons </h1>
+ </div> 
+
+ <br> 
+ <br> 
+ <br> 
+ <br> 
+ <br>
+
 <br> 
 <br> 
 
+<div class="row">
+<div class="col-md-7 col-md-offset-2 text-center">
+<td id "question_insights">
+  <strong><%= @question.text %></strong>
+</td>
+</div>
 
-<%= @question.text %> 
+<br> 
+<br>
+<br>
 
-<% @question.insights.each do |insight| %>
+<table>
+<tr>
+<div class="row">
+<td><div class="span2"><% @question.insights.each do |insight| %></div></td>
+<div class="row">
+</tr>
+<div class="span2"><td><%= insight.kind %></td></div>
+<div class="span2"><td><%= insight.body %></td></div>
 
-<%= insight.kind %> 
-
-<%= insight.body %>
 
 <% end %> 
+
+</table>
+
+
 
 <br> 
 <br> 

@@ -20,34 +20,28 @@
 
   <br> 
 
+<div class="row-fluid">
+  <div class="span10">
+
 <table> 
 
-
 <% @questions.each do |question| %> 
+
 <tr>
 
-<td><%= link_to "#{question.text}", question_insights_path(question) %></td> 
-
-
+<td id= "question_text"><%=question.text%></td> 
 
 <td>YES : <%= question.number_of_yes_answers %></td>
 <td>NO : <%= question.number_of_no_answers %></td> 
 </tr>
-
-
 <tr>
-<% question.insights.each do |insight| %>
-<td> 
-  <strong> <%= insight.kind %> </strong> 
-  <br>
-  <%= insight.body %>
- </td> 
- <% end %> 
-</tr> 
+<td id= "procon"><%= link_to "Pros & Cons", question_insights_path(question)%></td> 
+</tr>
+
 <% end %> 
-
-
 </table>
+</div>
+</div>
 
 <br> 
 <br> 

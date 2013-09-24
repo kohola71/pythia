@@ -36,9 +36,11 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem "friendly_id", "~> 4.0.9"
-
 gem 'annotate', ">=2.5.0"
+
+gem 'omniauth'
+
+gem 'omniauth-facebook', '1.4.0'
 
 
 # Use ActiveModel has_secure_password
