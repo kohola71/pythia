@@ -1,8 +1,9 @@
 class AnswersController < ApplicationController
 
 	def index
-        @answers = Answer.all 
-        @question = Question.all
+        @questions = Question.all
+        @insights = Insight.all
+        @answers = Answer.all
 	end 
 
 

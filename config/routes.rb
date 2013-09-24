@@ -1,5 +1,6 @@
 PythiaApp::Application.routes.draw do
   resources :users
+  resources :instruction
 
   # get "welcome/index"
 

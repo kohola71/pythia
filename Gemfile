@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem "friendly_id", "~> 4.0.9"
 
+gem 'annotate', ">=2.5.0"
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

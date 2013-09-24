@@ -1,11 +1,26 @@
-<h2>Answers</h2>
+<head> 
+</head> 
 
-<%= @question.text %>
+<body> 
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+<h2 id="you_answer" > Your Answer </h2>
+</div> 
+
+<br> 
+<br> 
+<br> 
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center">
+
+<h4>Question: <%= @question.text %></h4>
 
 
 <p>
-  <strong>My answer:</strong>
-  <%= @answer.body %>
+  <h4 id="your_answer"><strong>Your answer:</strong>
+  <%= @answer.body %></h4> 
 </p>
 
 <p>
@@ -14,4 +29,18 @@
   NO: <%= @no_answers %>
 </p>
 
+<p>
+<% @question.insights.each do |insight| %>
+<table>
+<tr>
+<td><strong><%= insight.kind %><strong></td>
+<td><%= insight.body %></td>
+</tr> 
+<% end %> 
+</p>
 
+
+
+</div> 
+
+</body> 
