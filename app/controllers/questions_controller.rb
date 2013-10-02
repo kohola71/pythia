@@ -1,19 +1,21 @@
 class QuestionsController < ApplicationController
 
 	def index
-        @questions = Question.all 
+        @questions = Question.where(user_id: current_user.id) 
+        #@questions = current_user.questions
         @answers = Answer.all
         @insights = Insight.all
 	end 
 
 	def new
 		@question = Question.new
+		@friends = current_user.friends
 		
 	end
 
 	def create 
 		@question = Question.new(params[:question].permit(:title, :text))
-		# @question.user = current_user
+		@question.user = current_user
 
 		if @question.save
 			redirect_to @question

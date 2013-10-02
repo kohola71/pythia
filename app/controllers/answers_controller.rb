@@ -1,6 +1,9 @@
 class AnswersController < ApplicationController
 
 	def index
+		# q1= Question.find(params[:question_id])
+		# @answers = q1.answers
+
         @questions = Question.all
         @insights = Insight.all
         @answers = Answer.all
@@ -16,11 +19,16 @@ class AnswersController < ApplicationController
 
 
 	def show
+
+		#@answer = Answer.q1
+
 		@answer = Answer.find(params[:id])
+		@answer = Answer.where(user_id: current_user.id)
 		@question = Question.find(@answer.question_id)
 
 		@yes_answers = Answer.where(question_id: @answer.question_id, body: 'YES').count
 		@no_answers = Answer.where(question_id: @answer.question_id, body: 'NO').count
+		@open_answers = Answer.where(question_id: @answer.question_id)
 
 	end 
 

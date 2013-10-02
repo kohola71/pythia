@@ -14,4 +14,6 @@ class Answer < ActiveRecord::Base
 	has_many :insights, :dependent => :destroy
 	scope :no_answers, where(body: 'NO')
 	scope :yes_answers, where(body: 'YES')
+	scope :open_answers
+
 end

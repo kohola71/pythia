@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :questions
 
 	def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -10,4 +11,15 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def friends
+     if token = oauth_token
+      graph = Koala::Facebook::GraphAPI.new(token)
+      graph.get_connections("me", "friends")
+    else
+      []
+    end
+  end
 end 
+
+
