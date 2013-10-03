@@ -11,6 +11,7 @@ PythiaApp::Application.routes.draw do
   resources :questions do 
     resources :answers 
     resources :insights
+    resources :possible_answers
   end 
 
   root to: "welcome#index"

@@ -10,6 +10,8 @@
 
 class Question < ActiveRecord::Base
 	has_many :answers, :dependent => :destroy
+	has_many :possible_answers
+	accepts_nested_attributes_for :possible_answers
 	validates :text, presence: true, length: {minimum: 5}
 	has_many :insights, :dependent => :destroy
 	belongs_to :user

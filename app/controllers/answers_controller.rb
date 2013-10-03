@@ -1,12 +1,19 @@
 class AnswersController < ApplicationController
 
 	def index
-		# q1= Question.find(params[:question_id])
-		# @answers = q1.answers
 
-        @questions = Question.all
-        @insights = Insight.all
-        @answers = Answer.all
+		@questions = Question.where(user_id: current_user.id) 
+		@answers = Answer.where(user_id: current_user.id)
+
+
+
+		# q1= Question.find[:question_id]
+		# @answers = q1.answers
+		# @answers = current_user.questions.answers
+
+        # @questions = Question.all
+        # @insights = Insight.all
+        # @answers = Answer.all
 	end 
 
 
@@ -23,8 +30,9 @@ class AnswersController < ApplicationController
 		#@answer = Answer.q1
 
 		@answer = Answer.find(params[:id])
-		@answer = Answer.where(user_id: current_user.id)
 		@question = Question.find(@answer.question_id)
+
+
 
 		@yes_answers = Answer.where(question_id: @answer.question_id, body: 'YES').count
 		@no_answers = Answer.where(question_id: @answer.question_id, body: 'NO').count
