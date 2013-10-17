@@ -25,6 +25,7 @@
    <%= f.fields_for :possible_answers do |builder| %>
    <%= render "possible_answer_fields", :f => builder %>
    <% end %>
+  
   <p>
     <%= f.submit :Save %>
   </p>

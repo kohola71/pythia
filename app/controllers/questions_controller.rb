@@ -11,9 +11,9 @@ class QuestionsController < ApplicationController
 	def new
 		@question = Question.new
 		# @possible_answer = PossibleAnswer.new
-	3.times do
-	 @question.possible_answers.build
-	end 
+		3.times do
+	    	@question.possible_answers.build
+	    end 
 		@friends = current_user.friends
 
 	end
@@ -73,7 +73,7 @@ class QuestionsController < ApplicationController
 private 
 
 def question_params
-      params.require(:question).permit(:body, :text, :question, possible_answers: [:body])
+      params.require(:question).permit(:body, :text, :question, possible_answer: [:body])
     end
 
 

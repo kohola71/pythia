@@ -45,6 +45,8 @@ gem 'omniauth-facebook', '1.4.0'
 
 gem 'koala'
 
+gem "twitter-bootstrap-rails", "~> 2.2.8"
+
 
 
 # Use ActiveModel has_secure_password
