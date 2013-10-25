@@ -1,7 +1,7 @@
 
 <div class="row">
 <div class="col-md-6 col-md-offset-3 text-center">
-<%= form_for :question, url: questions_path do |f| %>
+<%= form_for @question, url: questions_path do |f| %>
   <% if @question.errors.any? %>
   <div id="errorExplanation">
     <h2><%= pluralize(@question.errors.count, "error") %> prohibited
@@ -23,7 +23,7 @@
  <p>
    <%= f.label "Enter possible answers" %><br>
    <%= f.fields_for :possible_answers do |builder| %>
-   <%= render "possible_answer_fields", :f => builder %>
+      <%= render "possible_answer_fields", :f => builder %>
    <% end %>
   
   <p>

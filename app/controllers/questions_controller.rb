@@ -27,6 +27,7 @@ class QuestionsController < ApplicationController
 		if @question.save
 			redirect_to @question
 		else 
+			@friends = current_user.friends
 			render 'new'
 		end 
 
@@ -73,7 +74,7 @@ class QuestionsController < ApplicationController
 private 
 
 def question_params
-      params.require(:question).permit(:body, :text, :question, possible_answer: [:body])
+      params.require(:question).permit(:body, :text, :question, :possible_answers_attributes => { :id => :possible_answer})
     end
 
 
