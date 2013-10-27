@@ -1,6 +1,6 @@
 
-<br> 
-<br> 
+<br>
+<br>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
@@ -9,68 +9,40 @@
   <h2><%= @question.text %></h2>
 
 </p>
-</div> 
+</div>
 
 <br>
-<br> 
+<br>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
 
-<p>
-  <strong>POSSIBLE ANSWER:</strong>
-  <h2><% @question.possible_answers.each do |possible_answer| %>
-    <%= possible_answer.body %>
-    <% end %> 
-</p>
+  <% @possible_answers.each do |possible_answer| %>
+    <div class="col-md-6">
+      <h4><a href="#"><%= possible_answer.body %></a></h4>
+    </div>
+    <div class="col-md-6">
 
+    <%= form_for([@question, possible_answer, Insight.new]) do |f| %>
+      <%= f.radio_button(:kind, "PRO") %>
+      <%= f.label "PROs" %>
+      <%= f.radio_button(:kind, "CON") %>
+      <%= f.label "CONs" %>
+
+      <%= f.text_field :body %>
+      <%= f.submit :Save %>
+    <% end %>
+    </div>
+  <% end %>
+  </div>
 </div>
 
-<br> 
+<br/>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center">
-<ul>
-<% @insights.each do |insight| %>
-<li> 
-  <strong> <%= insight.kind %> </strong>
-  <%= insight.body %>
-<% end %> 
-</ul> 
- 
 
-<h2>Add pros & cons:</h2>
-
-<%= form_for([@question, @insight]) do |f| %>
- <p>
- <%= f.radio_button(:kind, "PRO") %>
- <%= f.label "PROs" %>
- <%= f.radio_button(:kind, "CON") %>
- <%= f.label "CONs" %>
- <br/>
-
-<%= f.text_area :body %>
-<%= f.hidden_field :question_id, :value => @question.id %>
-  </p>
-
- <p>
-    <%= f.submit :Save %>
-  </p>
-<% end %>
-
-
-
-
-</div>
-
-<br> 
-<br> 
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3 text-center">
- 
 <%= link_to 'Edit Question', edit_question_path(@question) %> |
 <%= link_to 'Back to Questions', questions_path %>
 
-
-</div> 
+</div>

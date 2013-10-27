@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002115843) do
+ActiveRecord::Schema.define(version: 20131027194516) do
 
   create_table "answers", force: true do |t|
     t.text     "body"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131002115843) do
     t.text    "body"
     t.string  "kind"
     t.integer "question_id"
+    t.integer "possible_answer_id"
   end
 
   create_table "possible_answers", force: true do |t|

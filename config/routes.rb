@@ -2,23 +2,24 @@ PythiaApp::Application.routes.draw do
    match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
    match 'auth/failure', to: redirect('/'), via: [:get, :post]
    match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-  
+
   resources :users
   resources :instruction
 
   # get "welcome/index"
 
-  resources :questions do 
-    resources :answers 
-    resources :insights
-    resources :possible_answers
-  end 
+  resources :questions do
+    resources :answers
+    resources :possible_answers do
+      resources :insights
+    end
+  end
 
   root to: "welcome#index"
 
 
 
-  
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,7 +62,7 @@ PythiaApp::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

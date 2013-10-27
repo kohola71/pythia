@@ -9,7 +9,8 @@
 #
 
 class Insight < ActiveRecord::Base
-	belongs_to :question
-	belongs_to :answer
-	
+  belongs_to :question
+  belongs_to :possible_answer
+
+  validates :body, :kind, presence: true
 end

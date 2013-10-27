@@ -1,24 +1,24 @@
 class QuestionsController < ApplicationController
 
 	def index
-        @questions = Question.where(user_id: current_user.id) 
+        @questions = Question.where(user_id: current_user.id)
         #@questions = current_user.questions
         @answers = Answer.all
         @insights = Insight.all
         @possible_answers = current_user.possible_answers
-	end 
+	end
 
 	def new
 		@question = Question.new
 		# @possible_answer = PossibleAnswer.new
 		3.times do
 	    	@question.possible_answers.build
-	    end 
+	    end
 		@friends = current_user.friends
 
 	end
 
-	def create 
+	def create
 		@question = Question.new(question_params)
 		@question.user = current_user
 		# @possible_answer = PossibleAnswer.new(params[:possible_answer].permit(:body))
@@ -26,23 +26,18 @@ class QuestionsController < ApplicationController
 
 		if @question.save
 			redirect_to @question
-		else 
+		else
 			@friends = current_user.friends
 			render 'new'
-		end 
+		end
 
-	end 
+	end
 
-	def show 
+	def show
 		@question = Question.find(params[:id])
 		@possible_answer = PossibleAnswer.new
 		@possible_answers = @question.possible_answers
-		@insight = Insight.new
-		@insights = @question.insights
-		@answer = Answer.new
-	end 
-
-
+	end
 
  def update
     @question = Question.find(params[:id])
@@ -58,27 +53,19 @@ class QuestionsController < ApplicationController
     end
   end
 
-
-
-
-	def destroy 
+	def destroy
 		@question = Question.find(params[:id])
 		@question.destroy
 
 		redirect_to questions_path
-	end 
+	end
 
+  private
 
-
-
-private 
-
-def question_params
-      params.require(:question).permit(:body, :text, :question, :possible_answers_attributes => { :id => :possible_answer})
-    end
-
-
-end 
+  def question_params
+    params.require(:question).permit(:body, :text, :question, :possible_answers_attributes => [:id, :body])
+  end
+end
 
 
 

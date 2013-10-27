@@ -1,9 +1,13 @@
 
 
-#question_insights 
+#question_insights
 
-{ 
-	font-family: "verdana", sans-serif; 
-	color: white; 
+{
+	font-family: "verdana", sans-serif;
+	color: white;
 	font-size: 20px
  }
+
+form.new_insight input, form.new_insight label {
+  display: inline;
+}
