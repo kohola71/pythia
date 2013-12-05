@@ -16,7 +16,7 @@
  <div class="row">
   <div class="col-md-7 col-md-offset-2 text-left">
 
-  <strong>All questions & answers:</strong>
+  <strong>All questions & answers:</strong></div>
 
   <br> 
 
@@ -31,26 +31,24 @@
 
 <td id= "question_text"><%=question.text%></td> 
 
-<td>YES : <%= question.number_of_yes_answers %></td>
-<td>NO : <%= question.number_of_no_answers %></td> 
+	<% question.possible_answers.each %> do |question|
+	<td><%= possible_answer.body %></td>
+	<td><%= possible_answer.count %></td>
+
+<% end %>
+
 </tr>
-<tr>
-<td id= "procon"><%= link_to "Pros & Cons", question_insights_path(question)%></td> 
-</tr>
+
 
 <% end %> 
 </table>
 </div>
 </div>
-
-<br> 
-<br> 
-<br> 
+</div>
 
 
 <%= link_to 'Back', questions_path %> 
 
-</div> 
 
 
 

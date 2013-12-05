@@ -12,8 +12,7 @@
 class Answer < ActiveRecord::Base
 	belongs_to :question
 	has_many :insights, :dependent => :destroy
-	scope :no_answers, where(body: 'NO')
-	scope :yes_answers, where(body: 'YES')
-	scope :open_answers
+	scope :possible_answers
+	
 
 end

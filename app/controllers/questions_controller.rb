@@ -14,6 +14,7 @@ class QuestionsController < ApplicationController
 		3.times do
 	    	@question.possible_answers.build
 	    end
+
 		@friends = current_user.friends
 
 	end

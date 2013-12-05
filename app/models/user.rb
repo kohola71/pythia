@@ -17,10 +17,12 @@ class User < ActiveRecord::Base
      if token = oauth_token
       graph = Koala::Facebook::GraphAPI.new(token)
       graph.get_connections("me", "friends")
-    else
+      else
       []
     end
+
   end
-end 
+end
+
 
 

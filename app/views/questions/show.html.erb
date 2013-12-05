@@ -23,18 +23,16 @@
     </div>
     <div class="col-md-6">
 
-    <%= form_for([@question, possible_answer, Insight.new]) do |f| %>
-      <%= f.radio_button(:kind, "PRO") %>
-      <%= f.label "PROs" %>
-      <%= f.radio_button(:kind, "CON") %>
-      <%= f.label "CONs" %>
-
-      <%= f.text_field :body %>
-      <%= f.submit :Save %>
+    <%= form_for([@question, possible_answer]) do |f| %>
+ 
+      <%= f.submit :Vote %>
     <% end %>
     </div>
   <% end %>
   </div>
+
+  <%= link_to 'Ask friends', '#', id: "send-friends" %> 
+
 </div>
 
 <br/>
