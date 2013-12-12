@@ -12,11 +12,12 @@ PythiaApp::Application.routes.draw do
     resources :answers
     resources :possible_answers do
       resources :insights
+      resources :votes
     end
   end
 
   root to: "welcome#index"
-
+  
 
 
 

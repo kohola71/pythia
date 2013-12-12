@@ -23,13 +23,22 @@
     </div>
     <div class="col-md-6">
 
-    <%= form_for([@question, possible_answer]) do |f| %>
- 
-      <%= f.submit :Vote %>
+    <% if @vote %>
+      <% if @vote.possible_answer_id == possible_answer.id %>
+        <strong>Voted</strong>
+      <% end %>
+    <% else %>
+      <%= form_for([@question, possible_answer, Vote.new]) do |f| %>
+        <%= f.submit :Vote %>
+      <% end %>
     <% end %>
     </div>
   <% end %>
   </div>
+
+
+
+
 
   <%= link_to 'Ask friends', '#', id: "send-friends" %> 
 

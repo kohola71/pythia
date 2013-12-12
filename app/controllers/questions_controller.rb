@@ -35,9 +35,9 @@ class QuestionsController < ApplicationController
 	end
 
 	def show
-		@question = Question.find(params[:id])
-		@possible_answer = PossibleAnswer.new
+		@question = Question.find(params[:id]) #Question.find_by_identifier
 		@possible_answers = @question.possible_answers
+		@vote = Vote.where(:question_id => @question.id, :user_id => current_user.id).first
 	end
 
  def update

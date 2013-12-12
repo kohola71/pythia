@@ -26,3 +26,6 @@ def number_of_no_answers
 end
 
 end 
+
+#add identifier 
+#pass to fb question.identifier as a string 

@@ -1,8 +1,8 @@
 $(document).ready(function() {
   $("#send-friends").click(function() {
     FB.ui({method: 'apprequests',
-      title: "Help me decide!",
-      message: "Please help me decide what to do"
+      title: "Check out Pythia",
+      message: "Check out <a href= 'http://pythiaapp.herokuapp.com/'>question</a>",
     }, function(response) {
        console.log(response);
     });
@@ -18,3 +18,7 @@ FB.getLoginStatus(function(response) {
       }
     }
 });
+
+
+
+//there needs to be a data parameter - uniquify. So that I don't pass question/39. rails generate migration add_identifier_to_question. 
