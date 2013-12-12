@@ -9,7 +9,6 @@ PythiaApp::Application.routes.draw do
   # get "welcome/index"
 
   resources :questions do
-    resources :answers
     resources :possible_answers do
       resources :insights
       resources :votes

@@ -21,12 +21,14 @@
     <div class="col-md-6">
       <h4><a href="#"><%= possible_answer.body %></a></h4>
     </div>
-    <div class="col-md-6">
-
+     <div class="col-md-6 col-md-offset-3 text-center">
     <% if @vote %>
       <% if @vote.possible_answer_id == possible_answer.id %>
-        <strong>Voted</strong>
+         <div class="col-md-4 col-md-offset-10">
+          <h4>Voted</h4> 
+          </div>
       <% end %>
+
     <% else %>
       <%= form_for([@question, possible_answer, Vote.new]) do |f| %>
         <%= f.submit :Vote %>
