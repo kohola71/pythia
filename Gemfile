@@ -47,6 +47,7 @@ gem 'koala'
 
 gem "twitter-bootstrap-rails", "~> 2.2.8"
 
+gem 'rails_serve_static_assets'
 
 
 # Use ActiveModel has_secure_password
