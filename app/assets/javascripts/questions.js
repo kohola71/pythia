@@ -1,8 +1,12 @@
 $(document).ready(function() {
-  $("#send-friends").click(function() {
+  $("#send-friends").click(function(e) {
+    var data = {
+      questionId: e.target.dataset["question"]
+    };
     FB.ui({method: 'apprequests',
       title: "Check out Pythia",
       message: "Check out <a href= 'http://pythiaapp.herokuapp.com/'>question</a>",
+      data: data
     }, function(response) {
        console.log(response);
     });

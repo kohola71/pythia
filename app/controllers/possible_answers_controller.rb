@@ -3,7 +3,7 @@ class PossibleAnswersController < ApplicationController
 	def index
 
 		@questions = Question.where(user_id: current_user.id) 
-		@possible_answers = PossibleAnswer.all
+	
 	
 	
 
@@ -21,8 +21,9 @@ class PossibleAnswersController < ApplicationController
 
 	def show 
 		@questions = Question.where(user_id: current_user.id) 
+		@vote = Vote.where(:question_id => @question.id, :user_id => current_user.id).count
 	# @question = Question.find(@vote.question_id)
-	# @vote = Vote.where(:question_id => @question.id, :user_id => current_user.id).count
+	
 	
 
 

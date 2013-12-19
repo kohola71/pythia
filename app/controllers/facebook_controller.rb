@@ -5,4 +5,8 @@ class FacebookController < ApplicationController
     session['access_token'] = session['oauth'].get_access_token(params[:code])
     redirect_to '/facebooks/menu'
   end
+
+  def canvas
+  	
+  end
 end

@@ -4,4 +4,5 @@ class PossibleAnswer < ActiveRecord::Base
     has_many :insights
     belongs_to :answer
 	validates :body, presence: true
+	has_many :votes
 end
