@@ -8,7 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module PythiaApp
   class Application < Rails::Application
-
+    config.action_dispatch.default_headers['X-Frame-Options'] = "SAMEORIGIN, ALLOW-FROM https://apps.facebook.com"
     config.assets.paths << Rails.root.join('vendor', 'assets', 'bootstrap')
     
     # Settings in config/environments/* take precedence over those specified here.
