@@ -1,16 +1,16 @@
 
 
 <div>
-<strong> My Questions </strong>
+<strong> Question </strong>
 </div>
  
-
-  <div>
-  	<% @questions.each do |question| %>
-    <ul>
-     <li id= "question_text"><%= question.text %></li>
-    </ul> 
-    <% end %>
-  </div>
+<div> 
+  <ul>
+	<li><h2><%= @question.text %></h2></li>
+	 <li><% @possible_answers.each do |possible_answer| %></li>
+	<li><%= possible_answer.body %></a></li>
+	<% end %>
+   </ul>
+</div>
 
 

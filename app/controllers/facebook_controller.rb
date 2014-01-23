@@ -9,6 +9,15 @@ class FacebookController < ApplicationController
   end
 
   def canvas
-
+  	@questions = Question.where(user_id: current_user.id)
+  	@possible_answers = current_user.possible_answers
   end
 end
+
+private
+
+ def facebook_params
+    params.require(:question).permit(:body, :text, :question, :possible_answers_attributes => [:id, :body])
+  end
+end
+
