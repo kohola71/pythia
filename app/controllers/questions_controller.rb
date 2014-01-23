@@ -10,7 +10,6 @@ class QuestionsController < ApplicationController
 
 	def new
 		@question = Question.new
-		# @possible_answer = PossibleAnswer.new
 		3.times do
 	    	@question.possible_answers.build
 	    end

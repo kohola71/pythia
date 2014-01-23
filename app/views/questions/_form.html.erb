@@ -20,16 +20,15 @@
      <%= f.text_area :text %>
   </p>
  
- <p>
+ <div class="answer_container">
    <%= f.label "Enter possible answers" %><br>
    <%= f.fields_for :possible_answers do |builder| %>
       <%= render "possible_answer_fields", :f => builder %>
    <% end %>
-  
   <p>
     <%= f.submit :Save %>
   </p>
-
+  </div>
 
 <% end %>
 

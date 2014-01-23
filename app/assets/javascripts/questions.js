@@ -1,27 +1,53 @@
+
 $(document).ready(function() {
-  $("#send-friends").click(function(e) {
-    var data = {
-      questionId: e.target.dataset["question"]
-    };
-    FB.ui({method: 'apprequests',
-      title: "Check out Pythia",
-      message: "Check out <a href= 'http://pythiaapp.herokuapp.com/'>question</a>",
-      data: data
-    }, function(response) {
-       console.log(response);
-    });
-    return false;
-  });
+  // $("#send-friends").click(function(e) {
+  //   var data = {
+  //     questionId: e.target.dataset["question"]
+  //   };
+  //   FB.ui({method: 'apprequests',
+  //     title: "Check out Pythia",
+  //     message: "Check out <a href= 'http://pythiaapp.herokuapp.com/'>question</a>",
+  //     data: data
+  //   }, function(response) {
+  //      console.log(response);
+  //   });
+  //   return false;
+  // });
+  
+  // FB.getLoginStatus(function(response) {
+  //     if (response.status === 'connected') {
+  //       gFBID = response.authResponse.userID;
+  //       if (!processIncomingRequest()) {
+  //         alert("Welcome to Pythia!");
+  //       }
+  //     }
+  // });
+
+  var AddField = function(event) {
+      event.preventDefault();
+    var LastField = $(".answer_field:last");
+    
+    var ReplaceFunction = function(i, val) {
+      return val.replace(/[0-9]/, function(m) { return (+m + 1).toString() });
+    }
+
+    var NewField = LastField.clone();
+
+    NewField.find("textarea").attr("name", ReplaceFunction);
+
+    NewField.find("textarea").attr("id", ReplaceFunction);
+
+    NewField.find("label").attr("for", ReplaceFunction);
+
+
+    NewField.insertAfter(LastField);
+
+  }
+ 
+ $("<button> Add Answer </button>").appendTo(".answer_container").click(AddField); 
 });
 
-FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
-      gFBID = response.authResponse.userID;
-      if (!processIncomingRequest()) {
-      	alert("Welcome to Pythia!");
-      }
-    }
-});
+
 
 
 

@@ -10,12 +10,20 @@
 }
 
 
-#site_title { 
+#site_title_test { 
 	font-family: "monoton", sans-serif; 
 	color: white; 
 	font-size: 80px
 
  }
+
+#site_title {
+	text-align: center;
+	font-family: "monoton";
+	margin-left: -280px;
+	color: white;
+	font-size: 80px;
+}
 
 
  #tagline {
