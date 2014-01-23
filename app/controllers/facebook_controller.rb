@@ -9,10 +9,9 @@ class FacebookController < ApplicationController
   end
 
   def canvas
-  	@questions = Question.where(user_id: current_user.id)
-  	@possible_answers = current_user.possible_answers
+  	@question = Question.where(:question_id => @question.id)
+  	@possible_answers = question.possible_answers
   end
-end
 
 private
 
