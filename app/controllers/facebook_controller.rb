@@ -9,14 +9,29 @@ class FacebookController < ApplicationController
   end
 
   def canvas
-  	@question = Question.where(:question_id => @question.id)
-  	@possible_answers = question.possible_answers
+    unless current_user
+      render :text => "You need to log in. Go to pythiaapp.herokuapp.com and log in!"
+      return
   end
 
-private
+    token = current_user.oauth_token
+    graph = Koala::Facebook::GraphAPI.new(token)
+    request_id = params['request_ids'].split(',').last
+    r = graph.get_object(request_id)
 
- def facebook_params
-    params.require(:question).permit(:body, :text, :question, :possible_answers_attributes => [:id, :body])
+    data = JSON.load(r['data'])
+    if data && data['question_id']
+      redirect_to question_path(data['question_id'])
+    else
+      render :text => "The data in the request is malformed: #{r}"
+    end
   end
+#
+#   private
+#
+#   def facebook_params
+#     params.require(:question).permit(:body, :text, :question, :possible_answers_attributes => [:id, :body])
+#   end
 end
+  	
 

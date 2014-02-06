@@ -1,18 +1,16 @@
 
 $(document).ready(function() {
-  // $("#send-friends").click(function(e) {
-  //   var data = {
-  //     questionId: e.target.dataset["question"]
-  //   };
-  //   FB.ui({method: 'apprequests',
-  //     title: "Check out Pythia",
-  //     message: "Check out <a href= 'http://pythiaapp.herokuapp.com/'>question</a>",
-  //     data: data
-  //   }, function(response) {
-  //      console.log(response);
-  //   });
-  //   return false;
-  // });
+ // 'hey ' + e.target.dataset["question"] + ' ho'
+   $("#send-friends").click(function(e) {
+    FB.ui({method: 'apprequests',
+      title: "Check out Pythia",
+      message: "I have a dilemma. Help me make up my mind!",
+      data: '{"question_id": ' + e.target.dataset["question"] + '}'
+    }, function(response) {
+      console.log(response);
+    });
+    return false;
+  });
   
   // FB.getLoginStatus(function(response) {
   //     if (response.status === 'connected') {
